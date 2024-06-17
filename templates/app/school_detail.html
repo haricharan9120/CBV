@@ -1,0 +1,39 @@
+{% extends 'app/dummy.html' %}
+
+{% block title %}
+<title>HOME</title>
+{% endblock %}
+
+
+
+
+{% block body_block %}
+<center>
+    <h1>school_details</h1>
+    <h1>DETAILS OF SCHOOL  {{schoolobject}}</h1>
+
+    <h1>NAME OF SCHOOL IS {{schoolobject.scname}}</h1>
+
+    <h1>PRINCIPAL OF SCHOOL IS {{schoolobject.scprincipal}}</h1>
+
+    <h1>LOCATION OF SCHOOL IS {{schoolobject.sclocation}}</h1>
+
+
+
+    <h2>STUDENT DETAILS ARE</h2>
+    {% for sto in schoolobject.students.all %}
+    <h1>
+         STUDENT NAME IS   {{sto.stname}}
+    </h1>
+    <h1> STUDENT AGE IS {{sto.stage}}</h1>
+
+
+    {% endfor %}
+    <a href="{% url 'SchoolUpdate' pk=schoolobject.pk %}">SCHOOL UPDATE</a> <br>
+    
+    <a href="{% url 'SchoolDelete' pk=schoolobject.pk %}">SCHOOL DELETE</a>
+
+
+</center>
+
+{% endblock %}
